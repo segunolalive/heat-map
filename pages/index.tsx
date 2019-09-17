@@ -5,7 +5,7 @@ import monthsConfig from '../utils/monthsConfig';
 
 import generateMonthData from '../utils/generateHash';
 
-export default function Index({ year = 2019 }) {
+export default function Index({ year = '2019' }) {
   const offset = new Date(year).getDay();
   const { MIN, MAX, summary } = generateMonthData(transactions);
   const weekDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -43,7 +43,7 @@ export default function Index({ year = 2019 }) {
       <style jsx global>
         {`
           :root {
-            font-size: 0.625rem;
+            font-size: calc(1rem * 0.3vmin);
           }
 
           html,
@@ -64,10 +64,7 @@ export default function Index({ year = 2019 }) {
           }
 
           main {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            padding-left: 2rem;
           }
 
           .months {
@@ -80,6 +77,7 @@ export default function Index({ year = 2019 }) {
             display: grid;
             grid-template-rows: repeat(7, 2rem);
             grid-auto-flow: column;
+            margin-right: 1rem;
           }
 
           .label {
@@ -87,8 +85,9 @@ export default function Index({ year = 2019 }) {
           }
 
           h1 {
-            font-size: 4rem;
+            font-size: 2.5rem;
             font-family: sans-serif;
+            text-align: center;
           }
 
           .grid {
